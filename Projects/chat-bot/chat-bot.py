@@ -1,95 +1,3 @@
-# import streamlit as st
-# from nltk.chat.util import Chat, reflections
-
-# # Streamlit App Title
-# st.title("🤖 AI Chatbot")
-# st.write("Ask me anything! I am a simple rule-based AI bot. 💬")
-
-# # Define Pairs of Pattern & Response (Rule-Based)
-# pairs = [
-#     (r"hi|hello|hey", ["Hello! 👋", "Hey there! How can I help you?"]),
-#     (r"how are you?", ["I'm just a bot, but I'm doing great! 😃"]),
-#     (r"what is your name?", ["I am an AI Chatbot 🤖"]),
-#     (r"who created you?", ["I was created by **Kaladi Developer**🔥"]),
-#     (r"what can you do?", ["I can answer your questions and have basic conversations. Try asking me something! 💡"]),
-#     (r"bye|goodbye", ["Goodbye! Have a great day! 👋"]),
-#     (r"(.*)", ["Sorry, I didn't understand that. Can you try again? 🤔"])
-# ]
-
-# # Initialize Chatbot
-# chatbot = Chat(pairs, reflections)
-
-# # Chat Interface
-# if "messages" not in st.session_state:
-#     st.session_state.messages = []
-
-# # Display Chat History
-# for msg in st.session_state.messages:
-#     st.chat_message(msg["role"]).write(msg["content"])
-
-# # User Input
-# user_input = st.chat_input("Type your message...")
-
-# if user_input:
-#     # Append User Message
-#     st.session_state.messages.append({"role": "user", "content": user_input})
-
-#     # Get Bot Response
-#     response = chatbot.respond(user_input)
-
-#     # Append Bot Response
-#     st.session_state.messages.append({"role": "assistant", "content": response})
-
-#     # Display Bot Message
-#     st.chat_message("assistant").write(response)
-
-
-
-
-# import google.generativeai as genai
-# import streamlit as st
-
-# # Set up Gemini AI API Key
-# genai.configure(api_key="AIzaSyARsTdlBsMGRHWfprBvJB5ebgBP0EpIB8c")  # Replace with your actual API key
-
-# # Streamlit App Title
-# st.title("🤖 AI Chatbot using Google Gemini API")
-# st.write("Ask me anything, and I'll try my best to answer! 💬")
-
-# # Initialize chat history
-# if "messages" not in st.session_state:
-#     st.session_state.messages = []
-
-# # Display chat history (Show both User & Bot Messages)
-# for msg in st.session_state.messages:
-#     with st.chat_message(msg["role"]):
-#         st.write(msg["content"])
-
-# # User input
-# user_input = st.chat_input("Type your message...")
-
-# if user_input:
-#     # **Display User Message**
-#     with st.chat_message("user"):
-#         st.write(user_input)
-
-#     # Append user message to session
-#     st.session_state.messages.append({"role": "user", "content": user_input})
-
-#     # Get response from Gemini AI
-#     model = genai.GenerativeModel("gemini-1.5-flash")  # Use "gemini-1.5-pro" if needed
-#     response = model.generate_content(user_input)
-
-#     bot_reply = response.text  # Extract response text
-
-#     # **Display Bot Message**
-#     with st.chat_message("assistant"):
-#         st.write(bot_reply)
-
-#     # Append bot response to session
-#     st.session_state.messages.append({"role": "assistant", "content": bot_reply})
-
-
 
 
 import os
@@ -177,7 +85,7 @@ if user_input:
     lower_input = user_input.lower()
 
     if any(phrase in lower_input for phrase in [
-        "tumhen kisne banaya hai", "who created you", "who developed you","who is developed you", "who develop you","who is develop you","tumhen kisne banaya ha","kisne banaya hai tumhen","kisne banaya ha tumhen","kisne banaya hai tumhe","kisne banaya ha tumhe"
+        "tumhen kisne banaya hai", "who created you","tumhen banaya kisne ha", "tumhen banaya kisne hai","tumhe banaya kisne ha","tumhe banaya kisne hai","tumhen kisne train kya ha","tumhen kisne train kya hai","tumhen kisne train kiya ha","tumhen train kisne kya hai","tumhen train kisne kiya hai","tumhen train kisne kiya ha","tumhe train kisne kiya ha","tumhe train kisne kiya hai", "tumhen train kisne kya ha","tumhe train kisne kya ha","tumhe train kisne kya hai", "tumhen kisne train kiya hai","tumhe kisne train kiya ha","tumhen kisne train kiya hai","who train you","who is train you", "who developed you","who is developed you", "who develop you","who is develop you","tumhen kisne banaya ha","kisne banaya hai tumhen","kisne banaya ha tumhen","kisne banaya hai tumhe","kisne banaya ha tumhe"
     ]):
         bot_reply = "Mujhe Subhan Kaladi ne banaya hai! 🚀\nI was created by Subhan Kaladi! 🔥"
 
