@@ -1,102 +1,102 @@
-import streamlit as st
 import json
 import os
 
-# File path for saving the library
 data_file = 'library.txt'
 
-# Load library from file
 def load_library():
     if os.path.exists(data_file):
         with open(data_file, 'r') as file:
             return json.load(file)
     return []
 
-# Save library to file
 def save_library(library):
     with open(data_file, 'w') as file:
         json.dump(library, file)
 
-# Add a book to the library
-def add_book(library, book):
-    library.append(book)
-    save_library(library)
+def add_book(library):
+    title = input("Enter book title: ")
+    author = input("Enter author: ")
+    year = input("Enter publication year: ")
+    genre = input("Enter genre: ")
+    read = input("Have you read this book? (yes/no): ").lower() == 'yes'
 
-# Remove a book by title
-def remove_book(library, title):
+    new_book = {
+        "title": title,
+        "author": author,
+        "year": year,
+        "genre": genre,
+        "read": read
+    }
+    library.append(new_book)
+    save_library(library)
+    print(f'Book "{title}" added successfully!')
+
+def remove_book(library):
+    title = input("Enter the title of the book to remove: ")
+    initial_length = len(library)
     library[:] = [book for book in library if book['title'].lower() != title.lower()]
-    save_library(library)
+    if len(library) < initial_length:
+        save_library(library)
+        print(f'Book "{title}" removed successfully!')
+    else:
+        print(f'Book "{title}" not found.')
 
-# Search for books by title or author
-def search_books(library, search_term, search_by):
-    return [book for book in library if search_term.lower() in book[search_by].lower()]
+def search_books(library):
+    search_by = input("Search by title or author: ").lower()
+    search_term = input(f"Enter the {search_by}: ").lower()
+    results = [book for book in library if search_term in book[search_by].lower()]
+    
+    if results:
+        for book in results:
+            status = "Read" if book['read'] else "Unread"
+            print(f'{book["title"]} by {book["author"]} ({book["year"]}) - {book["genre"]} - {status}')
+    else:
+        print("No matching books found.")
 
-# Display statistics
+def display_all_books(library):
+    if library:
+        for book in library:
+            status = "Read" if book['read'] else "Unread"
+            print(f'{book["title"]} by {book["author"]} ({book["year"]}) - {book["genre"]} - {status}')
+    else:
+        print("No books in the library.")
+
 def display_statistics(library):
     total_books = len(library)
     read_books = len([book for book in library if book['read']])
     percentage_read = (read_books / total_books * 100) if total_books > 0 else 0
-    return total_books, percentage_read
+    print(f"Total Books: {total_books}")
+    print(f"Percentage Read: {percentage_read:.2f}%")
 
-# Main Streamlit app
 def main():
-    st.title("📚 Personal Library Manager")
     library = load_library()
 
-    menu = ["Add Book", "Remove Book", "Search Book", "Display All Books", "Display Statistics"]
-    choice = st.sidebar.selectbox("Menu", menu)
+    while True:
+        print("\nMenu:")
+        print("1. Add Book")
+        print("2. Remove Book")
+        print("3. Search Book")
+        print("4. Display All Books")
+        print("5. Display Statistics")
+        print("6. Exit")
 
-    if choice == "Add Book":
-        st.subheader("Add a New Book")
-        title = st.text_input("Book Title")
-        author = st.text_input("Author")
-        year = st.number_input("Publication Year", min_value=0, step=1)
-        genre = st.text_input("Genre")
-        read = st.selectbox("Have you read this book?", ["Yes", "No"]) == "Yes"
+        choice = input("Enter your choice: ")
 
-        if st.button("Add Book"):
-            new_book = {
-                "title": title,
-                "author": author,
-                "year": year,
-                "genre": genre,
-                "read": read
-            }
-            add_book(library, new_book)
-            st.success(f'Book "{title}" added successfully!')
-
-    elif choice == "Remove Book":
-        st.subheader("Remove a Book")
-        title = st.text_input("Enter the title of the book to remove")
-        if st.button("Remove Book"):
-            remove_book(library, title)
-            st.success(f'Book "{title}" removed successfully!')
-
-    elif choice == "Search Book":
-        st.subheader("Search for a Book")
-        search_by = st.selectbox("Search by", ["title", "author"])
-        search_term = st.text_input(f"Enter the {search_by}")
-        if st.button("Search"):
-            results = search_books(library, search_term, search_by)
-            if results:
-                for book in results:
-                    st.write(f'**{book["title"]}** by {book["author"]} ({book["year"]}) - {book["genre"]} - {"Read" if book["read"] else "Unread"}')
-            else:
-                st.info("No matching books found.")
-
-    elif choice == "Display All Books":
-        st.subheader("All Books in the Library")
-        if library:
-            for book in library:
-                st.write(f'**{book["title"]}** by {book["author"]} ({book["year"]}) - {book["genre"]} - {"Read" if book["read"] else "Unread"}')
+        if choice == '1':
+            add_book(library)
+        elif choice == '2':
+            remove_book(library)
+        elif choice == '3':
+            search_books(library)
+        elif choice == '4':
+            display_all_books(library)
+        elif choice == '5':
+            display_statistics(library)
+        elif choice == '6':
+            print("Exiting the Library Manager.")
+            break
         else:
-            st.info("No books in the library.")
-
-    elif choice == "Display Statistics":
-        st.subheader("Library Statistics")
-        total, percentage = display_statistics(library)
-        st.write(f"Total Books: {total}")
-        st.write(f"Percentage Read: {percentage:.2f}%")
+            print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
     main()
