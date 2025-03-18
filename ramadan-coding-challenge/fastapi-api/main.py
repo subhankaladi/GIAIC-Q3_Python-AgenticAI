@@ -42,7 +42,7 @@ money_quotes = [
 @app.get("/")
 def read_root():
     return {
-        "message": "Hello World, Go to /side_hustles or /money_quotes to get a random side hustle or money quote"
+        "message": "Hello World Go to /side_hustles or /money_quotes to get a random side hustle or money quote"
     }
 
 
