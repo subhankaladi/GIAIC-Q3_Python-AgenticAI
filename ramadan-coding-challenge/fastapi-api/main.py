@@ -55,3 +55,5 @@ def get_side_hustles():
 def get_money_quotes():
     "Return a random money quote"
     return {"money_quote": random.choice(money_quotes)}
+
+
