@@ -1,17 +1,44 @@
 import streamlit as st
 from cryptography.fernet import Fernet
 import hashlib
+import json
+import os
+import time
 
-# In-memory storage
-stored_data = {}
-failed_attempts = {}
-session_auth = {"authorized": True}
+# File path for persistent storage
+DATA_FILE = "secure_data.json"
+ATTEMPTS_FILE = "attempts.json"
 
-# Generate a key for Fernet
+# Load or initialize storage
+def load_data():
+    if os.path.exists(DATA_FILE):
+        with open(DATA_FILE, "r") as f:
+            return json.load(f)
+    return {}
+
+def save_data(data):
+    with open(DATA_FILE, "w") as f:
+        json.dump(data, f)
+
+def load_attempts():
+    if os.path.exists(ATTEMPTS_FILE):
+        with open(ATTEMPTS_FILE, "r") as f:
+            return json.load(f)
+    return {}
+
+def save_attempts(attempts):
+    with open(ATTEMPTS_FILE, "w") as f:
+        json.dump(attempts, f)
+
+# Initialize session state
 if "fernet_key" not in st.session_state:
     st.session_state.fernet_key = Fernet.generate_key()
+if "authorized" not in st.session_state:
+    st.session_state.authorized = True
 
 fernet = Fernet(st.session_state.fernet_key)
+stored_data = load_data()
+failed_attempts = load_attempts()
 
 # Utility: Hash passkey
 def hash_passkey(passkey):
@@ -22,6 +49,7 @@ def insert_data(user_id, text, passkey):
     encrypted_text = fernet.encrypt(text.encode()).decode()
     hashed_passkey = hash_passkey(passkey)
     stored_data[user_id] = {"encrypted_text": encrypted_text, "passkey": hashed_passkey}
+    save_data(stored_data)
     st.success(f"Data stored securely for user: {user_id}")
 
 # Retrieve data
@@ -30,20 +58,25 @@ def retrieve_data(user_id, passkey):
         st.error("No data found for this user.")
         return
 
-    # Check failed attempts
     if failed_attempts.get(user_id, 0) >= 3:
-        session_auth["authorized"] = False
+        st.session_state.authorized = False
         st.warning("Too many failed attempts. Redirecting to login.")
-        st.experimental_rerun()
+        time.sleep(1)
+        st.rerun()
         return
 
     hashed_input = hash_passkey(passkey)
     if hashed_input == stored_data[user_id]["passkey"]:
-        decrypted = fernet.decrypt(stored_data[user_id]["encrypted_text"].encode()).decode()
-        st.success(f"Decrypted Data: {decrypted}")
-        failed_attempts[user_id] = 0  # reset after success
+        try:
+            decrypted = fernet.decrypt(stored_data[user_id]["encrypted_text"].encode()).decode()
+            st.success(f"Decrypted Data: {decrypted}")
+            failed_attempts[user_id] = 0
+            save_attempts(failed_attempts)
+        except Exception as e:
+            st.error("Error while decrypting. Possibly incorrect key.")
     else:
         failed_attempts[user_id] = failed_attempts.get(user_id, 0) + 1
+        save_attempts(failed_attempts)
         attempts_left = 3 - failed_attempts[user_id]
         st.error(f"Incorrect passkey. Attempts left: {attempts_left}")
 
@@ -55,16 +88,18 @@ def login_page():
 
     if st.button("Login"):
         if username == "admin" and password == "admin123":
-            session_auth["authorized"] = True
-            st.success("Login successful!")
+            st.session_state.authorized = True
             failed_attempts.clear()
-            st.experimental_rerun()
+            save_attempts(failed_attempts)
+            st.success("Login successful! Redirecting...")
+            time.sleep(1)
+            st.rerun()
         else:
             st.error("Invalid credentials.")
 
 # Main App
 def main():
-    if not session_auth.get("authorized", True):
+    if not st.session_state.get("authorized", True):
         login_page()
         return
 
