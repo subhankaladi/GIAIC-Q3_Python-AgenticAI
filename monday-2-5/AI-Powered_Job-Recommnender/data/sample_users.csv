@@ -1,0 +1,3 @@
+user_id,name,skills,experience_years,education,preferred_job_titles,preferred_locations,experience_details
+1,John Doe,"python,machine learning,sql",3,Master's Degree,"data scientist,machine learning engineer","remote,new york","Built ML models for customer segmentation"
+2,Jane Smith,"python,data analysis,excel",1,Bachelor's Degree,"data analyst,business analyst","remote","Created dashboards for sales data"
