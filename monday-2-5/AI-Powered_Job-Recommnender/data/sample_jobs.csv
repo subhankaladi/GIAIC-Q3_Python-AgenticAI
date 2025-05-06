@@ -1,0 +1,6 @@
+id,title,company,location,description,required_skills,preferred_skills,experience_level,education_level,posted_date
+1,Data Scientist,TechCorp,New York,"Analyze data and build ML models","python,machine learning,statistics","sql,cloud computing",Mid Level,Master's Degree,2023-05-01
+2,Machine Learning Engineer,AI Solutions,San Francisco,"Develop and deploy ML models","python,tensorflow,deep learning","docker,kubernetes",Senior Level,Master's Degree,2023-05-10
+3,Data Analyst,Data Insights,Remote,"Create reports and dashboards","sql,excel,data visualization","python,tableau",Entry Level,Bachelor's Degree,2023-05-15
+4,Python Developer,CodeMasters,Remote,"Develop Python applications","python,django,flask","aws,postgresql",Mid Level,Bachelor's Degree,2023-05-20
+5,AI Researcher,University Lab,Boston,"Conduct research in AI","machine learning,python,research","phd publications",Senior Level,PhD,2023-05-25
