@@ -1,0 +1,16 @@
+[project]
+name = "ai-powered-job-recommnender"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "nltk>=3.9.1",
+    "numpy>=2.2.5",
+    "pandas>=2.2.3",
+    "pdfplumber>=0.11.6",
+    "pillow>=11.2.1",
+    "python-dotenv>=1.1.0",
+    "scikit-learn>=1.6.1",
+    "streamlit>=1.45.0",
+]
