@@ -50,4 +50,5 @@ dependencies = [
     "scikit-learn>=1.6.1",
     "pkgconfig>=1.5.5",
     "cmake>=4.0.2",
+    "pycom>=0.6.0",
 ]

@@ -31,3 +31,4 @@ pyqt5
 # cairo-devel
 # cmake
 # # python-dev-tools
+pycom
