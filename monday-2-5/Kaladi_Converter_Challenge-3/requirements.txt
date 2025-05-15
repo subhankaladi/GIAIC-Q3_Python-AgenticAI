@@ -15,7 +15,7 @@ markdo
 pdf2image
 svglib
 reportlab
-python-docx2pdf
+docx2pdf
 scikit-image
 numpy
 rembg
