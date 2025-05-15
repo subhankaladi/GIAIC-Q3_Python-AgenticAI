@@ -234,7 +234,7 @@ class BackgroundRemoverApp:
             st.markdown("</div>", unsafe_allow_html=True)
 
     def show_main_interface(self):
-        st.markdown("<h1 style='text-align: center; margin-bottom: 2rem;'>🎨 Background Remover</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='text-align: center; margin-bottom: 2rem;'>Kaladi Converter</h1>", unsafe_allow_html=True)
         
         if st.session_state.get('authenticated'):
             user = st.session_state.user
