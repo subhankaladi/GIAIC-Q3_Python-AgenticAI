@@ -22,12 +22,12 @@ google-auth
 google-auth-oauthlib
 google-auth-httplib2
 python-dotenv
-pycairo
+# pycairo
 pygobject
 pyqt5
 # pkg-config
 # libcairo2-dev
-pkgconfig
-cairo-devel
-cmake
-# python-dev-tools
+# pkgconfig
+# cairo-devel
+# cmake
+# # python-dev-tools
