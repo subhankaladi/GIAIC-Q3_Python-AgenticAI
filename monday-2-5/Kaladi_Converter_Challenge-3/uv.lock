@@ -365,6 +365,32 @@ wheels = [
 ]
 
 [[package]]
+name = "cmake"
+version = "4.0.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ca/7b/7ad900329f02b7f0fa7e22d4815d1fd63e2fb95d6236b423457385ed57f5/cmake-4.0.2.tar.gz", hash = "sha256:d6ce25b2cbebc073344d38b603ba223f8e633a07335f8056375f397a0f0027e5", size = 34516 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d7/1f/2e86eb03ab8a52525347dede45ef3752b4516c19cc87be8a6546cef28839/cmake-4.0.2-py3-none-macosx_10_10_universal2.whl", hash = "sha256:0e1ade8fc1527c678ff5b2ef732a9a52dad60481097438eb19e43eec8eb2fc9c", size = 48733653 },
+    { url = "https://files.pythonhosted.org/packages/a7/9c/492a819ab79371987a709999b6bf5244db83a2bfb415ac79e10333475a17/cmake-4.0.2-py3-none-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:2e62d1518e7983b4df9b793fe47897d5f2eaee3781addd8e1663264090eb4bf6", size = 27738741 },
+    { url = "https://files.pythonhosted.org/packages/e2/1f/dfe5dfd20698c5fe466b133fdf6f8e0cf00c32cb4c5a774fafc1dbdfe422/cmake-4.0.2-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:deee8aae77599c17e32e4c80288e463ed3f1ebed04e1a819118f510854a82d8e", size = 26980799 },
+    { url = "https://files.pythonhosted.org/packages/31/f7/fc30d8bb7a0a99a28455de5c7285c24cc9c8f1109441dc9f59b671554d13/cmake-4.0.2-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:a0415add60972fb3650a73bcc742bae9e19e03dd29219d9d89e18e0a3c0cd1d1", size = 27255147 },
+    { url = "https://files.pythonhosted.org/packages/57/a8/9a9c5d3af7e461d186613afeabfd2dabb6c9bab4fd45ae08d2c5e9f04116/cmake-4.0.2-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:e77546cd96e6edd514ac675a6c1512314519dac6dd4c5b975e564a6f09b4ccbc", size = 29018562 },
+    { url = "https://files.pythonhosted.org/packages/88/39/49de74010f4ba3eecb5f673ba841e6eea70b582bab4ce8816b8f75206297/cmake-4.0.2-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:166a0515a61183149be70df0def8097c6dc638484bcbb785340ae81cb5a94f50", size = 30869968 },
+    { url = "https://files.pythonhosted.org/packages/38/16/dc1963516f81ab3c19248f810b8b9d054d61a20ea805fbdcabe0e0475cc8/cmake-4.0.2-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:86ade184b259b18ba53ff343d4d5f263ec59dfb7304633523ba0efacfd98f41a", size = 27026054 },
+    { url = "https://files.pythonhosted.org/packages/50/fd/2f872a4618026a244494409262c41181e8fb3e44bd3a75ab47d396f59998/cmake-4.0.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9d123ea46c0dffe057fcfeaf448f623d6f79211cdd2b32fe779a86833fd3f4d9", size = 27910624 },
+    { url = "https://files.pythonhosted.org/packages/41/29/9cb17a4027612c74511a1a51c1be4a6ccf1a0faf9cd873b19aed1a621027/cmake-4.0.2-py3-none-manylinux_2_31_armv7l.whl", hash = "sha256:47806759aa5748c2b5f1e2a035ef887bbd293b12a2a9603e42673f698c0e1a63", size = 25154444 },
+    { url = "https://files.pythonhosted.org/packages/cd/3a/49eff3783a99fc68f08c42eafdb0339cf0a8413c9cdec5661fffab1a7040/cmake-4.0.2-py3-none-musllinux_1_1_aarch64.whl", hash = "sha256:e96921b6abfb627913d02cec9f4736a760741804044ac0740d8eefdcb7c47b4b", size = 28025207 },
+    { url = "https://files.pythonhosted.org/packages/57/e5/1aa9b9cbb8625e5bc5db5325990582415c6264ed76063053bab3e64d941b/cmake-4.0.2-py3-none-musllinux_1_1_i686.whl", hash = "sha256:eea2c303cf3f009ffc71135e4e0cf03c3ad6cd409543270dc0601de32b50d0c1", size = 31554257 },
+    { url = "https://files.pythonhosted.org/packages/22/63/7aae6e25b4e33f718c622d07e238ce5976982f20726459b2abb1f196c378/cmake-4.0.2-py3-none-musllinux_1_1_ppc64le.whl", hash = "sha256:4a469718c87253e67c81e5518ba19dc789f87a0e9f73ecd5af0ca139933b671f", size = 32279962 },
+    { url = "https://files.pythonhosted.org/packages/3f/0f/673ee9ed196a95c2941cf6df4390d8b8e8b44ca9d2bd9ed8684fa9b11d1d/cmake-4.0.2-py3-none-musllinux_1_1_s390x.whl", hash = "sha256:60c7ff7b5fa725bbc4067f3256e68b21454e97f6e646bae123c756553245c7f3", size = 28102064 },
+    { url = "https://files.pythonhosted.org/packages/7c/74/251c776092cdd107d71cf156d2780d48620efda42d195355bceb42dff210/cmake-4.0.2-py3-none-musllinux_1_1_x86_64.whl", hash = "sha256:fc483ed8a31c22cb1b46c81017b0703b469360584d004ac0f5e346f04b75e3c8", size = 29637502 },
+    { url = "https://files.pythonhosted.org/packages/26/85/1724465e3779f883731416db1c8f58a8f08cbe2151eea98a7577beb911ae/cmake-4.0.2-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:f8ea86bfd9925575d4a49b3d98ce352f07bbae4fdbb6d703bd26314ca7a3db0c", size = 33324254 },
+    { url = "https://files.pythonhosted.org/packages/46/ba/f9c2e0cebd9f6276fa7cb896c4b0eb9386cca5dae22b9431d56993f09026/cmake-4.0.2-py3-none-win32.whl", hash = "sha256:dc4ff87bbdf6ccf6cdce1f98089f5669f70e4a6c4d30d315df8e79a8cdc1c581", size = 33705810 },
+    { url = "https://files.pythonhosted.org/packages/16/1a/6504170f8cfadde043ed5dabadcca8af50545094428ed74c44c1eac3903f/cmake-4.0.2-py3-none-win_amd64.whl", hash = "sha256:61cddbaa7586b8e9a2718619fd8935811a8af45e102ed3acc506b575e3766266", size = 36669295 },
+    { url = "https://files.pythonhosted.org/packages/59/1d/c1900d83286b54c89d7a430c99dc09384a20dc3d7ce993d44dc7bc649aee/cmake-4.0.2-py3-none-win_arm64.whl", hash = "sha256:bb666564334530a9305ce0e5d7137d558e53c2f1a8175b798047550fefe7bb87", size = 35684210 },
+]
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 source = { registry = "https://pypi.org/simple" }
@@ -993,6 +1019,7 @@ dependencies = [
     { name = "astor" },
     { name = "beautifulsoup4" },
     { name = "cairosvg" },
+    { name = "cmake" },
     { name = "comtypes" },
     { name = "docx2pdf" },
     { name = "fastapi" },
@@ -1012,6 +1039,7 @@ dependencies = [
     { name = "pandas" },
     { name = "pdf2image" },
     { name = "pillow" },
+    { name = "pkgconfig" },
     { name = "py7zr" },
     { name = "pycairo" },
     { name = "pydub" },
@@ -1041,6 +1069,7 @@ requires-dist = [
     { name = "astor", specifier = ">=0.8.1" },
     { name = "beautifulsoup4", specifier = ">=4.13.4" },
     { name = "cairosvg", specifier = ">=2.8.0" },
+    { name = "cmake", specifier = ">=4.0.2" },
     { name = "comtypes", specifier = ">=1.4.10" },
     { name = "docx2pdf", specifier = ">=0.1.8" },
     { name = "fastapi", specifier = ">=0.115.12" },
@@ -1060,6 +1089,7 @@ requires-dist = [
     { name = "pandas", specifier = ">=2.2.3" },
     { name = "pdf2image", specifier = ">=1.17.0" },
     { name = "pillow", specifier = ">=11.2.1" },
+    { name = "pkgconfig", specifier = ">=1.5.5" },
     { name = "py7zr", specifier = ">=0.22.0" },
     { name = "pycairo", specifier = ">=1.28.0" },
     { name = "pydub", specifier = ">=0.25.1" },
@@ -1540,6 +1570,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/b3/92/1ca0c3f09233bd7decf8f7105a1c4e3162fb9142128c74adad0fb361b7eb/pillow-11.2.1-cp313-cp313t-win32.whl", hash = "sha256:e0b55f27f584ed623221cfe995c912c61606be8513bfa0e07d2c674b4516d9dd", size = 2335774 },
     { url = "https://files.pythonhosted.org/packages/a5/ac/77525347cb43b83ae905ffe257bbe2cc6fd23acb9796639a1f56aa59d191/pillow-11.2.1-cp313-cp313t-win_amd64.whl", hash = "sha256:36d6b82164c39ce5482f649b437382c0fb2395eabc1e2b1702a6deb8ad647d6e", size = 2681895 },
     { url = "https://files.pythonhosted.org/packages/67/32/32dc030cfa91ca0fc52baebbba2e009bb001122a1daa8b6a79ad830b38d3/pillow-11.2.1-cp313-cp313t-win_arm64.whl", hash = "sha256:225c832a13326e34f212d2072982bb1adb210e0cc0b153e688743018c94a2681", size = 2417234 },
+]
+
+[[package]]
+name = "pkgconfig"
+version = "1.5.5"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/c4/e0/e05fee8b5425db6f83237128742e7e5ef26219b687ab8f0d41ed0422125e/pkgconfig-1.5.5.tar.gz", hash = "sha256:deb4163ef11f75b520d822d9505c1f462761b4309b1bb713d08689759ea8b899", size = 6082 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/32/af/89487c7bbf433f4079044f3dc32f9a9f887597fe04614a37a292e373e16b/pkgconfig-1.5.5-py3-none-any.whl", hash = "sha256:d20023bbeb42ee6d428a0fac6e0904631f545985a10cdd71a20aa58bc47a4209", size = 6732 },
 ]
 
 [[package]]

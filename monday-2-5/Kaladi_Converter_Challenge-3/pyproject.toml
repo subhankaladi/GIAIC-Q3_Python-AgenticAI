@@ -49,4 +49,6 @@ dependencies = [
     "stripe>=12.1.0",
     "pycairo>=1.28.0",
     "scikit-learn>=1.6.1",
+    "pkgconfig>=1.5.5",
+    "cmake>=4.0.2",
 ]

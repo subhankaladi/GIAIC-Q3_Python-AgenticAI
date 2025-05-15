@@ -27,4 +27,7 @@ pygobject
 pyqt5
 pkg-config
 libcairo2-dev
+pkgconfig
 cairo-devel
+cmake
+# python-dev-tools
