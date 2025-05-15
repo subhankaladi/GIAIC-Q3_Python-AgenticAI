@@ -25,8 +25,8 @@ python-dotenv
 pycairo
 pygobject
 pyqt5
-pkg-config
-libcairo2-dev
+# pkg-config
+# libcairo2-dev
 pkgconfig
 cairo-devel
 cmake
