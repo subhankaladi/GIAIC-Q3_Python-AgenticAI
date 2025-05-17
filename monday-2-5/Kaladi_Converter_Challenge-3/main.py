@@ -301,7 +301,17 @@ class BackgroundRemoverApp:
                            help="Click to proceed to payment"):
                     checkout_url = self.credit.create_checkout_session(user.email, user.id)
                     if checkout_url:
-                        st.markdown(f"[Click here to complete payment]({checkout_url})", unsafe_allow_html=True)
+                        st.markdown(f"""
+                        <div style="text-align: center; margin: 20px 0;">
+                            <a href="{checkout_url}" 
+                               style="display: inline-block; padding: 12px 24px; background-color: #2196F3; 
+                               color: white; text-decoration: none; border-radius: 5px; 
+                               transition: all 0.3s ease; hover: background-color: #1976D2;
+                               box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                               💳 Complete Payment
+                            </a>
+                        </div>
+                        """, unsafe_allow_html=True)
                 return
 
             if st.button("Remove Background"):
