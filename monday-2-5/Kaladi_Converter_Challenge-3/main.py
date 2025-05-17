@@ -1,5 +1,3 @@
-
-
 import streamlit as st
 from rembg import remove
 from PIL import Image
@@ -288,7 +286,19 @@ class BackgroundRemoverApp:
 
             if total_credits <= 0:
                 st.warning("You've used all your credits. Please purchase more to continue.")
-                if st.button(f"Buy {self.credit.paid_credits_per_purchase} credits (${self.credit.price_per_purchase})"):
+                st.markdown("""
+                <div style="text-align: center; margin: 20px 0;">
+                    <a href="#" onclick="document.querySelector('button[data-testid=\'stButton\']').click()" 
+                       style="display: inline-block; padding: 12px 24px; background-color: #2196F3; 
+                       color: white; text-decoration: none; border-radius: 5px; 
+                       transition: background-color 0.3s; hover: background-color: #1976D2;">
+                       💳 Buy {} Credits (${})
+                    </a>
+                </div>
+                """.format(self.credit.paid_credits_per_purchase, self.credit.price_per_purchase), 
+                unsafe_allow_html=True)
+                if st.button(f"Buy {self.credit.paid_credits_per_purchase} credits (${self.credit.price_per_purchase})", 
+                           help="Click to proceed to payment"):
                     checkout_url = self.credit.create_checkout_session(user.email, user.id)
                     if checkout_url:
                         st.markdown(f"[Click here to complete payment]({checkout_url})", unsafe_allow_html=True)
@@ -315,7 +325,16 @@ class BackgroundRemoverApp:
         buffered = io.BytesIO()
         st.session_state.processed_image.save(buffered, format="PNG")
         img_str = base64.b64encode(buffered.getvalue()).decode()
-        href = f'<a href="data:image/png;base64,{img_str}" download="processed.png">📥 Download Processed Image</a>'
+        href = f'''
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="data:image/png;base64,{img_str}" download="processed.png" 
+               style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; 
+               color: white; text-decoration: none; border-radius: 5px; 
+               transition: background-color 0.3s; hover: background-color: #45a049;">
+               📥 Download Processed Image
+            </a>
+        </div>
+        '''
         st.markdown(href, unsafe_allow_html=True)
 
 
